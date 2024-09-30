@@ -1,4 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn pretty-quick --staged
+if [ "$(uname)" = "Linux" ]; then
+  npx pretty-quick --staged
+else
+  echo "Skipping pretty-quick on non-Linux environment."
+fi
